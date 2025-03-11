@@ -19,11 +19,8 @@ while opcao !=5:
             print('Nenhuma manifestação adicionada até agora.')
         
         else:
-            for item in listamanifest:
-                print('Manifestação {}) {}'.format(pos+1,item))
-                pos = pos + 1
-               
-
+            for i,item in enumerate(listamanifest):
+                print('Manifestação {}) {}'.format(i+1,item))
 
     elif opcao == 2:
         print('Crie sua manifestação abaixo')
