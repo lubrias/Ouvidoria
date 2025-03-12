@@ -5,7 +5,7 @@ Sistema de ouvidoria da unifacisa com menu de 5 opções
 '''
 opcao = -1
 listamanifest = [   ]
-pos = 0
+
 while opcao !=5:
     print('Bem-vindo a Ouvidoria UniFacisa.')
     print('Digite as opções à seguir para saber mais:')
@@ -39,9 +39,10 @@ while opcao !=5:
 
 
     elif opcao == 4:
-        print('Pesquisa de manifestação por código.')
-        x = input('Digite o código da manifestação à ser buscada: ')
-        
+        codigoPesquisa = int(input('Digite o código para pesquisa'))
+        if codigoPesquisa >=1 and codigoPesquisa <=3:
+        codigoPesquisado = listamanifest[codigoPesquisa-1]
+        print(codigoPesquisado)
 
 
     elif opcao !=5:
