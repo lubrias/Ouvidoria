@@ -36,3 +36,16 @@ while opcao !=5:
     elif opcao == 3:
         codmanifest = len(listamanifest)
         print(int(codmanifest),'manifestação(ões) até agora.')
+
+
+    elif opcao == 4:
+        print('Pesquisa de manifestação por código.')
+        x = input('Digite o código da manifestação à ser buscada: ')
+        
+
+
+    elif opcao !=5:
+        print('Digite um número válido(Entre 1 e 5.)')
+
+    elif opcao == 5:
+        print('Obrigado. Volte sempre.')
