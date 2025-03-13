@@ -39,7 +39,8 @@ while opcao !=5:
 
     elif opcao == 3:
         codmanifest = len(listamanifest)
-        print(int(codmanifest),'manifestação(ões) até agora.')
+        int(codmanifest)
+        print(codmanifest,'manifestação(ões) até agora.')
 
     elif opcao == 4:
         codPesquisa = int(input('Digite o código a ser pesquisado: '))
