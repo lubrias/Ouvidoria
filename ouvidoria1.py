@@ -20,8 +20,8 @@ while opcao !=5:
             print()
         
         else:
-           for i,item in enumerate(listamanifest):
-               print('Manifestação {}) {}'.format(i+1,item))
+           for item in range(len(listamanifest)):
+               print(item+1,')',listamanifest[item])
                
 
 
