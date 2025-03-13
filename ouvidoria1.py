@@ -43,9 +43,9 @@ while opcao !=5:
 
     elif opcao == 4:
         codPesquisa = int(input('Digite o código a ser pesquisado: '))
-        if codPesquisa >= 1 and codPesquisa <= range(len(listamanifest)):
+        if codPesquisa >= 1 and codPesquisa <= len(listamanifest):
             codPesquisado = listamanifest[codPesquisa-1]
-            print(codPesquisa,'-',codPesquisado)
+            print(codPesquisa,')',codPesquisado)
         else:
             print('Não há manifestação com esse código que você digitou.') 
     elif opcao == 5:
