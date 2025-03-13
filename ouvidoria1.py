@@ -17,10 +17,13 @@ while opcao !=5:
         print('Listagem de manifestações:')
         if len(listamanifest) == 0:
             print('Nenhuma manifestação adicionada até agora.')
+            print()
         
         else:
-            for i,item in enumerate(listamanifest):
-                print('Manifestação {}) {}'.format(i+1,item))
+           for i,item in enumerate(listamanifest):
+               print('Manifestação {}) {}'.format(i+1,item))
+               
+
 
     elif opcao == 2:
         print('Crie sua manifestação abaixo')
@@ -32,21 +35,22 @@ while opcao !=5:
                 break
         listamanifest.append(manifest)
         print('Sua manifestação foi lançada à Ouvidoria. Verifique se está na lista digitando 1.')
+        print()
 
     elif opcao == 3:
         codmanifest = len(listamanifest)
         print(int(codmanifest),'manifestação(ões) até agora.')
 
-
     elif opcao == 4:
-        codigoPesquisa = int(input('Digite o código para pesquisa'))
-        if codigoPesquisa >=1 and codigoPesquisa <=3:
-        codigoPesquisado = listamanifest[codigoPesquisa-1]
-        print(codigoPesquisado)
-
-
-    elif opcao !=5:
-        print('Digite um número válido(Entre 1 e 5.)')
-
+        codPesquisa = int(input('Digite o código a ser pesquisado: '))
+        if codPesquisa >= 1 and codPesquisa <=3:
+            codPesquisado = listamanifest[codPesquisa-1]
+            print(codPesquisa,'-',codPesquisado)
+        else:
+            print('Não há manifestação com esse código que você digitou.') 
     elif opcao == 5:
-        print('Obrigado. Volte sempre.')
+        print()
+        print('Obrigado. Volte sempre!')
+
+    elif opcao != 5:
+        print('Digite um código válido. Por favor.')
