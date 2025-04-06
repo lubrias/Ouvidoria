@@ -9,7 +9,7 @@ from operacoesbd import *
 7) Sair do sistema
 '''
 opcao = -1
-conn = criarConexao('127.0.0.1','root','luan1293@','ouvidoriaparte2')
+conn = criarConexao('127.0.0.1','root','x','ouvidoriaparte2')
 
 while opcao !=7:
     print('Ouvidoria Geral')
