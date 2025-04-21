@@ -11,6 +11,8 @@ from mainOuvidoria import *
 7) Sair do sistema
 '''
 
+conn = criarConexao("127.0.0.1","root","x","ouvidoriacompleta")
+
 #Menu principal
 while True:
     print(
