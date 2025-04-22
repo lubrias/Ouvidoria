@@ -44,10 +44,16 @@ def manifestacaoTotal(conn):
 
 #Manifestação por Tipo
 def manifestacaoPorTipo(conn):
-    tipoDoUser = int(input("Digite o tipo de manifestação que você deseja: 1) Reclamação. 2) Elogios. 3) Melhorias"))
+    tipoDoUser = int(input("Digite o tipo de manifestação que você deseja: (1) Reclamação. 2) Elogios. 3) Melhorias): "))
     consultaManifestacaoPorTipo = "SELECT * FROM manifestacoes where tipo = %s"
     dados = [tipoDoUser]
     listaManifestacoesPorTipo = listarBancoDados(conn,consultaManifestacaoPorTipo,dados)
+
+    if len(listaManifestacoesPorTipo) == 0:
+        print("Nenhuma manifestação adicionada até o momento.")
+    else:
+        for item in listaManifestacoesPorTipo:
+            print("-",item)
 
 #User cria nova manifestação:
 def criarNovaManifestacao(conn):
@@ -55,10 +61,23 @@ def criarNovaManifestacao(conn):
         try:
             autor = input("Digite o seu nome: ")
             descricao = input("Digite a descrição: ")
-            tipo = int(input("Digite o número que corresponde ao tipo da sua manifestação.\n"
+            tipo_num = int(input("Digite o número que corresponde ao tipo da sua manifestação.\n"
                              "(1 - Reclamação.\n 2 - Elogios.\n 3- Melhorias.)\n"
                              "Digite sua escolha: "))
+            ouvidor = input("Digite o(a) ouvidor(a): ")
+            
+            tipos = {1: "Reclamação", 2:"Elogio", 3: "Melhoria"}
 
+            if tipo_num in tipos:
+                tipo = tipos[tipo_num]
+                consultaAdicionar = "insert into manifestacoes(autor,descricao,tipo,ouvidor) values(%s,%s,%s,%s)"
+                dados = [autor,descricao,tipo,ouvidor]
+                manifestacaoCriada = insertNoBancoDados(conn,consultaAdicionar,dados)
+                print("Manifestação criada com sucesso!")
+                break
+            else:
+                print("Valor inválido. Tente novamente.")
+            
         except ValueError:
             print("Valores inválidos. Verifique o erro que você cometeu e tente novamente.")
 
@@ -108,4 +127,3 @@ def excluirManifestacao(conn):
             print("Digitação inválida. Verifique o erro que você cometeu e tente novamente.")
 
                              
-encerrarConexao(conn)
